@@ -10,9 +10,13 @@ rockButton = document.querySelector(".rock");
 paperButton = document.querySelector(".paper");
 scissorsButton = document.querySelector(".scissors");
 
+resetButton = document.querySelector(".resetButton")
+
 rockButton.addEventListener("click", startGame);
 paperButton.addEventListener("click", startGame);
 scissorsButton.addEventListener("click", startGame);
+
+resetButton.addEventListener("click", resetGame);
 
 
 function checkWinner() {
@@ -48,32 +52,46 @@ gameResult = document.querySelector(".gameResult");
 roundResult = document.querySelector(".roundResult");
 playerScoreDisplay = document.querySelector(".playerScoreDisplay");
 computerScoreDisplay = document.querySelector(".computerScoreDisplay");
-let isGameOver = false;
+roundDetails = document.querySelector(".roundDetails");
+
 let playerScore = 0;
 let computerScore = 0;
+let gameOver = false;
 
 function startGame() {
-    if (playerScore !== 5 && computerScore !== 5) {
+    while (!gameOver) {
         playerSelection = this.getAttribute("class");
         computerPlay();
         checkWinner();
         updateDisplay();
-    } else {
         displayGameResult();
+        break;
     }
+
 }
 
 function updateDisplay() {
     playerScoreDisplay.textContent = `Player: ${playerScore.toString()}`;
     computerScoreDisplay.textContent = `Computer: ${computerScore.toString()}`;
+    roundDetails.textContent = `Player selected ${playerSelection} and Computer selected ${computerSelection}`
 }
 
 function displayGameResult() {
     if (playerScore === 5) {
         gameResult.textContent = "You win"
         roundResult.textContent = ""
-    } else {
+        gameOver = true;
+    } else if (computerScore === 5) {
         gameResult.textContent = "You lose"
         roundResult.textContent = ""
+        gameOver = true;
     }
+}
+
+function resetGame() {
+    playerScore = 0;
+    computerScore = 0;
+    updateDisplay();
+    gameResult.textContent = "Choose your weapon";
+    gameOver = false;
 }
