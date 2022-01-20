@@ -1,3 +1,57 @@
 *{
     text-align: center;
+    background-color: #eae2b7;
+    font-family: "Nunito", sans-serif;
+
+}
+h1 {
+    color: #f77f00;
+    font-size: 50px;
+    font-weight: 700;
+}
+
+.resultDiv {
+    height: 30px;
+}
+
+.gameResult {
+    font-size: 30px;
+}
+
+.scoreTally {
+    font-size: 45px;
+    font-weight: 700;
+}
+
+.choose {
+    color: #003049;
+}
+
+.btn button {
+    border: 1px solid black;
+    border-radius: 7%;
+    font-size: 16px;
+    padding: 10px 20px;
+    margin: 0 20px;
+    width: 100px;
+}
+
+.roundDetails {
+    font-size: 20px;
+    font-weight: 300;
+}
+
+.roundResult {
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.resetButton {
+    border: 1px solid black;
+    border-radius: 7%;
+    font-size: 14px;
+    padding: 5px 10px;
+}
+button:hover {
+    background-color: #fbf3c8;
 }

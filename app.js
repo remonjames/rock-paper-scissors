@@ -74,14 +74,21 @@ function updateDisplay() {
     playerScoreDisplay.textContent = `Player: ${playerScore.toString()}`;
     computerScoreDisplay.textContent = `Computer: ${computerScore.toString()}`;
     roundDetails.textContent = `Player selected ${playerSelection} and Computer selected ${computerSelection}`
+    if (gameOver) {
+        roundDetails.textContent = "Best of 5";
+        gameResult.textContent = "";
+        roundResult.textContent = "";
+    }
 }
 
 function displayGameResult() {
     if (playerScore === 5) {
+        gameResult.style.color = "green"
         gameResult.textContent = "You win"
         roundResult.textContent = ""
         gameOver = true;
     } else if (computerScore === 5) {
+        gameResult.style.color = "red"
         gameResult.textContent = "You lose"
         roundResult.textContent = ""
         gameOver = true;
@@ -89,9 +96,9 @@ function displayGameResult() {
 }
 
 function resetGame() {
+    gameOver = true;
     playerScore = 0;
     computerScore = 0;
     updateDisplay();
-    gameResult.textContent = "Choose your weapon";
     gameOver = false;
 }
